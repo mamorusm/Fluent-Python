@@ -82,8 +82,21 @@ def spades_high(card):
     
 # print(Vector) # __repr__メソッドにより、オブジェクトの中身を調べることができる
 
-symbols = "$"
-beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols))) 
-print(beyond_ascii)
+# symbols = "$"
+# beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols))) 
+# print(beyond_ascii)
 # filterは（引数１、引数２）の時に、引数１がTrueの場合にのみ、返り値を渡す
 # map（引数１，引数２）で引数１で定義した関数を引数２に適応する
+
+# symbols = "$#%$"
+# print(tuple(ord(symbol) for symbol in symbols))
+
+
+# import array
+# print(array.array("I", (ord(symbol) for symbol in symbols)))
+
+colors = ["black", "white"]
+sizes = ["S", "M", "L"]
+for tshirt in ("%s %s" % (c, s) for c in colors for s in sizes):
+    print(tshirt)
+
