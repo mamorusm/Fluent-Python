@@ -1,30 +1,30 @@
 # p5
-import collections
+# import collections
 
-Card = collections.namedtuple("Card",["rank","suit"])
+# Card = collections.namedtuple("Card",["rank","suit"])
 
-class FrenchDeck:
-    ranks = [str(n) for n in range(2,11)] + list("JQKA")
-    # .split()で空欄ごとに分けて、リスト型にする
-    suits = "spades diamonds clubs hearts".split()
+# class FrenchDeck:
+#     ranks = [str(n) for n in range(2,11)] + list("JQKA")
+#     # .split()で空欄ごとに分けて、リスト型にする
+#     suits = "spades diamonds clubs hearts".split()
 
-    def __init__(self):
-        self._cards = [Card(rank,suit) for suit in self.suits
-                                      for rank in self.ranks]
+#     def __init__(self):
+#         self._cards = [Card(rank,suit) for suit in self.suits
+#                                       for rank in self.ranks]
 
-    def __len__(self):
-        return len(self._cards)
+#     def __len__(self):
+#         return len(self._cards)
     
-    # __getitem__で場所の参照を行っている
-    def __getitem__(self,position):
-        return self._cards[position]
+#     # __getitem__で場所の参照を行っている
+#     def __getitem__(self,position):
+#         return self._cards[position]
 
-deck = FrenchDeck()
+# deck = FrenchDeck()
 
 # print(len(deck))
 # print(deck[0])
 
-from random import choice
+# from random import choice
 # print(choice(deck))
 
 # print(deck[:3])
@@ -37,13 +37,13 @@ from random import choice
 # for card in reversed(deck):
 #     print(card)
 
-suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
+# suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
 
-def spades_high(card):
-    # card.rankで数字を取り出している & .indexはリスト内での順番を表す(今回は２から始まる)
-    rank_value = FrenchDeck.ranks.index(card.rank) 
-    # suit_vlauesでマークに相当する数字を辞書型から取り出す & len(suit_vlaues)は4枚ずつの単位強さが周回することを表す
-    return rank_value * len(suit_values) + suit_values[card.suit] 
+# def spades_high(card):
+#     # card.rankで数字を取り出している & .indexはリスト内での順番を表す(今回は２から始まる)
+#     rank_value = FrenchDeck.ranks.index(card.rank) 
+#     # suit_vlauesでマークに相当する数字を辞書型から取り出す & len(suit_vlaues)は4枚ずつの単位強さが周回することを表す
+#     return rank_value * len(suit_values) + suit_values[card.suit] 
 
 # print(deck.ranks)
 # print(deck[31])
@@ -95,8 +95,66 @@ def spades_high(card):
 # import array
 # print(array.array("I", (ord(symbol) for symbol in symbols)))
 
-colors = ["black", "white"]
-sizes = ["S", "M", "L"]
-for tshirt in ("%s %s" % (c, s) for c in colors for s in sizes):
-    print(tshirt)
+# colors = ["black", "white"]
+# sizes = ["S", "M", "L"]
+# for tshirt in ("%s %s" % (c, s) for c in colors for s in sizes):
+#     print(tshirt)
 
+# lax_coordinates = (33.9425, -118.408056)
+# city, year, pop, chg, area = ("Tokyo", 2003, 32.450, 0.66, 8014)
+# traveler_ids = [("USA", "31195855"), ("BRA", "CE342567"),
+#                 ("ESP", "XDA205856")]
+# for passport in sorted(traveler_ids):
+#     print("%s/%s" % passport)
+#     # タプルのアンパック
+
+# for country, _ in traveler_ids:
+#     print(country)
+
+# lax_coordinates = (33.945, -118.408056)
+# latitude, longitude = lax_coordinates
+
+# divmod(20, 8) #divmodは（商, 余り）をタプルで返す → 20/8 = 2 余り 4
+# t = (20, 8)
+# divmod(*t) #タプルのアンパック
+# quotient, remainder = divmod(*t)
+# print(quotient, remainder)
+
+# import os
+# _, filename = os.path.split("/home/luciano/.ssh/idrsa.pub")
+# print(filename)
+
+# a, b, *rest = range(5)
+# s = a, b, *rest
+
+# metro_areas = [
+#     ("Tokyo", "JP", 36.933, (35.689722, 139.691667)),
+#     ("Delhi NCR", "IN", 21.935, (28.613889, 77.208889)),
+#     ("Mexico City", "MX", 20.142, (19.433333, -99.133333)),
+#     ("New York-Newark", "US", 20.104, (40.808611, -74.0020386)),
+#     ("Sao Paulo", "BR", 19.649, (-23.547778, -46.635833))
+# ]
+
+# print("{:15} | {:^9} | {:9}".format("", "lat.", "long."))
+# fmt = "{:15} | {:9.4f} | {:9.4f}"
+# for name, cc, pop, (latitude, longitude) in metro_areas:
+#     if longitude <= 0:
+#         print(fmt.format(name, latitude, longitude))
+
+# from collections import namedtuple
+# City = namedtuple("City", "name country population coordinates")
+# tokyo = City("Tokyo", "JP", 36.933, (35.689722, 139.691667))
+# print(tokyo.population)
+
+# #クラス属性_fields
+# print(City._fields)
+# LatLong = namedtuple("LatLong", "lat long") #LatLongを使用した時、２つのインスタンスをlatとlongでおく
+# delhi_data = ("Delhi NCR", "IN", 21.935, LatLong(28.613889, 77.208889))
+# delhi = City._make(delhi_data)
+# delhi._asdict()
+# for key, value in delhi._asdict().items(): #named_tupleによって key:name, country,… | value:Delhi NCR, IN, …となった
+#     print(key + ":", value)
+
+# l = list(range(10))
+# l[2:4] = [20, 30]
+# print(l)
