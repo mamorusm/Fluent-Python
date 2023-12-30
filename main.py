@@ -55,31 +55,35 @@ def spades_high(card):
 # print(deck[26])
 # print(spades_high(deck[26]))
 
-from math import hypot
+# from math import hypot
 
-class Vector:
+# class Vector:
     
-    def __init__(self,x=0,y=0):
-        self.x = x
-        self.y = y
+#     def __init__(self,x=0,y=0):
+#         self.x = x
+#         self.y = y
     
-    def __repr__(self):
-        return 'Vector(%r, %r)' % (self.x, self.y)
+#     def __repr__(self):
+#         return 'Vector(%r, %r)' % (self.x, self.y)
     
-    def __abs__(self):
-        return hypot(self.x, self.y)
+#     def __abs__(self):
+#         return hypot(self.x, self.y)
     
-    def __bool__(self):
-        return bool(abs(self))
+#     def __bool__(self):
+#         return bool(abs(self))
     
-    def __add__(self, other):
-        x = self.x + other.x
-        y = self.x + other.y
-        return Vector(x,y)
+#     def __add__(self, other):
+#         x = self.x + other.x
+#         y = self.x + other.y
+#         return Vector(x,y)
     
-    def __mul__(self, scalar):
-        return Vector(self.x * scalar, self.y * scalar)
+#     def __mul__(self, scalar):
+#         return Vector(self.x * scalar, self.y * scalar)
     
-print(Vector) # __repr__メソッドにより、オブジェクトの中身を調べることができる
+# print(Vector) # __repr__メソッドにより、オブジェクトの中身を調べることができる
 
-    
+symbols = "$"
+beyond_ascii = list(filter(lambda c: c > 127, map(ord, symbols))) 
+print(beyond_ascii)
+# filterは（引数１、引数２）の時に、引数１がTrueの場合にのみ、返り値を渡す
+# map（引数１，引数２）で引数１で定義した関数を引数２に適応する
